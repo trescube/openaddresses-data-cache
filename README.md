@@ -23,7 +23,7 @@ If multiple attempts are needed to download all the data, then combine them into
 I then removed the properties not in the `addresses` layer conform by running this `jq` command:
 
 ```bash
-jq -c '{type: .type, geometry: .geometry, properties: {adresseerbaarobjectid: .properties.adresseerbaarobjectid, huisnummer: .properties.huisnummer, huisletter: .properties.huisletter, huisnummertoevoeging: .properties.huisnummertoevoeging, openbareruimtenaam: .properties.openbareruimtenaam, postcode: .properties.postcode, woonplaatsnaam: .properties.woonplaatsnaam}}' netherlands_addresses.geojson > netherlands_addresses.geojson.final
+jq -c -f netherlands.jq netherlands_addresses.geojson > netherlands_addresses.geojson.final
 ```
 
 Then zipped with:
